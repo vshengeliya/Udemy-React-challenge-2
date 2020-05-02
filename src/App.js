@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ValidationComponent from "./ValidationComponent.js"
 
 class App extends Component {
 
@@ -8,7 +9,7 @@ class App extends Component {
   }
 
   textL =(event) =>{
-    this.setState({textLenght:event.target.value})
+    this.setState({textLenght:event.target.value.length})
   }
 
   render() {
@@ -24,7 +25,8 @@ class App extends Component {
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
         <input type="text" onChange = {this.textL}/>
-        <p>text length: {this.state.textLenght.length}</p>
+        <p>text length: {this.state.textLenght}</p>
+        <ValidationComponent texty={this.state.textLenght}/>
       </div>
     );
   }
